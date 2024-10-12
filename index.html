@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pet</title>
+</head>
+<body>
+    <script>
+      // Create the pet object
+    const pet = {
+        name: "Chiku",
+        type: "Cat",
+        age: 5,
+        happiness: 80,
+        hunger: 60, 
+
+          // Method to feed the pet (decrease hunger by 20)
+          feed: function() {
+            this.hunger -= 20;
+            if (this.hunger < 0) {
+                this.hunger = 0;
+            }
+            alert(`${this.name} has been fed! Hunger is now ${this.hunger}.`);
+        },
+
+         // Method to play with the pet (increase happiness by 20)
+         play: function() {
+            this.happiness += 20;
+            if (this.happiness > 100) {
+                this.happiness = 100;
+            }
+            alert(`${this.name} played and is happier! Happiness is now ${this.happiness}.`);
+        },
+
+         // Method to age the pet (increase age by 1, decrease happiness by 5, increase hunger by 10)
+         agePet: function() {
+            this.age += 1;
+            this.happiness -= 5;
+            this.hunger += 10;
+            if (this.happiness < 0) {
+                this.happiness = 0;
+            }
+            if (this.hunger > 100) {
+                this.hunger = 100;
+            }
+            alert(`${this.name} is now ${this.age} years old! Happiness is ${this.happiness}, and Hunger is ${this.hunger}.`);
+        }
+    };
+
+    // Interactive function to choose actions
+    function interactWithPet() {
+        let action = prompt("What would you like to do? Choose: 'feed', 'play', 'age', or 'quit'");
+
+        while (action !== "quit") {
+            if (action === "feed") {
+                pet.feed();
+            } else if (action === "play") {
+                pet.play();
+            } else if (action === "age") {
+                pet.agePet();
+            } else {
+                alert("Invalid action! Please choose 'feed', 'play', 'age', or 'quit'.");
+            }
+            action = prompt("What would you like to do? Choose: 'feed', 'play', 'age', or 'quit'");
+        }
+        alert("Goodbye!");
+    }
+
+    // Start the interaction
+    interactWithPet();
+
+    </script>
+</body>
+</html>
