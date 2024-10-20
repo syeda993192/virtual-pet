@@ -14,6 +14,15 @@
         age: 5,
         happiness: 80,
         hunger: 60, 
+        
+           // Method to feed the pet (decrease hunger by 20)
+           feed: function() {
+            this.hunger -= 20;
+            if (this.hunger < 0) {
+                this.hunger = 0;
+            }
+            alert(`${this.name} has been fed! Hunger is now ${this.hunger}.`);
+        },
     }
 
     </script>
