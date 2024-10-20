@@ -48,6 +48,29 @@
         }
     };
     
+    // Interactive function to choose actions
+    function interactWithPet() {
+        let action = prompt("What would you like to do? Choose: 'feed', 'play', 'age', or 'quit'");
+
+        while (action !== "quit") {
+            if (action === "feed") {
+                pet.feed();
+            } else if (action === "play") {
+                pet.play();
+            } else if (action === "age") {
+                pet.agePet();
+            } else {
+                alert("Invalid action! Please choose 'feed', 'play', 'age', or 'quit'.");
+            }
+            action = prompt("What would you like to do? Choose: 'feed', 'play', 'age', or 'quit'");
+        }
+        alert("Goodbye!");
+    }
+
+    // Start the interaction
+    interactWithPet();
+
+    
 
     </script>
 </body>
